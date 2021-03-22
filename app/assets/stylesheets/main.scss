@@ -1,11 +1,24 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.page-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+
+  & .container{
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+}
 
 .nav-header {
   display: flex;
   align-items: center;
   gap: 20px;
+  margin: 0;
+  padding: 20px;
 
 
   &__link-btn {
@@ -22,7 +35,8 @@
 
     &.current a {
       color: #002f6b;
-      &::before{
+
+      &::before {
         content: '';
         position: absolute;
         bottom: 2px;

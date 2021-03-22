@@ -10,5 +10,8 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{href: "https://fonts.googleapis.com/css?family=Roboto:400,700", rel: "stylesheet", type: "text/css"}
   %body
-    %header=render 'shared/header'
-    = yield
+    %section.page-wrapper
+      %header= render 'shared/header'
+      .container
+        = yield
+      %footer= render 'shared/footer'

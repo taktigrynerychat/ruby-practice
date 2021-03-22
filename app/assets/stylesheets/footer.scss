@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  & > ul {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    font-size: 12px;
+
+    & a{
+      color: #c6c6c6;
+    }
+  }
+}
