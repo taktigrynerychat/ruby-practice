@@ -1,6 +1,8 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "variables";
+
 .page-wrapper {
   display: flex;
   height: 100%;
@@ -42,7 +44,7 @@
         bottom: 2px;
         left: -5px;
         height: 30%;
-        background: #c1d4ea;
+        background: $link-highlight;
         width: calc(100% + 10px);
         z-index: -1;
       }

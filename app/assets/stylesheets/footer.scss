@@ -1,3 +1,5 @@
+@import "variables";
+
 .footer {
   display: flex;
   flex-direction: column-reverse;
@@ -11,6 +13,9 @@
 
     & a{
       color: #c6c6c6;
+      &:hover{
+        color: $link-highlight;
+      }
     }
   }
 }
