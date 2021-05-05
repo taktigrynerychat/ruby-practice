@@ -1,6 +1,6 @@
 .image
   .image__header.image-header
-    .image-header__select-theme
+    #image-header__select-theme
       = render 'work/button_theme_select', locale: @current_locale
     .image-header__title
       #{@selected_theme}
@@ -12,9 +12,12 @@
         #{@selected_image_name}
 
     .image-content__image
+      .image-content__next-btn
+        ◀
       %img{:alt => "Default Image",
-                 :src => './assets/pictures/default.png',
+                 :src => './assets/pictures/pizza-1.jpeg',
                  :title => "Default image",
             }
-
+      .image-content__next-btn
+        ▶
 

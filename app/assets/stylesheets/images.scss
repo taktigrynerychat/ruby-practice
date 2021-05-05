@@ -29,13 +29,29 @@
     &__image{
       display: flex;
       flex-grow: 1;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      padding: 0 20px;
 
       & img {
         width: auto;
         max-height: calc(100vh - 200px);
+        max-width: calc(100vw - 140px);
+      }
+    }
+
+    &__next-btn{
+      display: flex;
+      flex-shrink: 0;
+      font-weight: 500;
+      font-size: 1.5em;
+      cursor: pointer;
+      background: #bed0e7;
+      color: #fff;
+      padding: 5px 10px;
+
+      &:hover{
+        background: #adc1dd;
       }
     }
   }
