@@ -9,6 +9,7 @@
 Image.delete_all
 Image.reset_pk_sequence
 Image.create([
+               { name: 'Default pic', file: 'default.png', theme_id: 1 },
                {name: 'pizza-1', file: 'pizza-1.jpg', theme_id: 2},
                {name: 'pizza-2', file: 'pizza-2.jpg', theme_id: 2},
                {name: 'pizza-3', file: 'pizza-3.jpg', theme_id: 2},

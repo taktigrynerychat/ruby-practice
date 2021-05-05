@@ -1,0 +1,20 @@
+.image
+  .image__header.image-header
+    .image-header__select-theme
+      = render 'work/button_theme_select', locale: @current_locale
+    .image-header__title
+      #{@selected_theme}
+
+
+  .image__content.image-content
+    .image-content__metadata
+      .image-content__image-name
+        #{@selected_image_name}
+
+    .image-content__image
+      %img{:alt => "Default Image",
+                 :src => './assets/pictures/default.png',
+                 :title => "Default image",
+            }
+
+
