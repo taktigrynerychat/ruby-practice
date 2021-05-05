@@ -12,12 +12,12 @@
         #{@selected_image_name}
 
     .image-content__image
-      .image-content__next-btn
+      .image-content__next-btn#left
         ◀
       %img{:alt => "Default Image",
-                 :src => './assets/pictures/pizza-1.jpeg',
+                 :src => "./assets/pictures/#{@selected_image_name}",
                  :title => "Default image",
             }
-      .image-content__next-btn
+      .image-content__next-btn#right
         ▶
 
