@@ -12,6 +12,7 @@
         #{@selected_image_name}
 
     .image-content__image
+      .image-content__rating
       .image-content__next-btn#left
         ◀
       %img{:alt => "Default Image",
@@ -21,3 +22,4 @@
       .image-content__next-btn#right
         ▶
 
+%script{:type=>"module", :src => 'rate'}

@@ -13,25 +13,27 @@
     padding: 0 20px;
   }
 
-  &__content{
+  &__content {
     display: flex;
     flex-direction: column;
     padding-top: 10px;
     flex-grow: 1;
   }
 
-  &-content{
-    &__metadata{
+  &-content {
+    &__metadata {
       display: flex;
       justify-content: center;
+      padding-bottom: 30px;
     }
 
-    &__image{
+    &__image {
       display: flex;
       flex-grow: 1;
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
+      position: relative;
 
       & img {
         width: auto;
@@ -40,7 +42,27 @@
       }
     }
 
-    &__next-btn{
+    &__rating {
+      position: absolute;
+      top: -25px;
+      left: calc((100% - 110px) / 2);
+
+      & polygon:hover {
+        cursor: pointer;
+        transition: 500ms;
+      }
+      & polygon:hover {
+        fill: black;
+      }
+      & polygon {
+        fill: lightgray;
+      }
+      & polygon.active{
+        fill: gold;
+      }
+    }
+
+    &__next-btn {
       display: flex;
       flex-shrink: 0;
       font-weight: 500;
@@ -50,7 +72,7 @@
       color: #fff;
       padding: 5px 10px;
 
-      &:hover{
+      &:hover {
         background: #adc1dd;
       }
     }
