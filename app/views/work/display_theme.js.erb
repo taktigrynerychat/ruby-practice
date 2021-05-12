@@ -33,3 +33,51 @@ $(".image-content__image").attr({title: "Selected image"});
 $(".image-content__image img").attr({alt: "Selected Image", src: pathImage, title: "Selected image"});
 
 $('.image-content__rating').attr({'data-value': 0});
+
+function imageChange(data_return){
+    imageCurrentIndex = data_return.new_image_index;
+    oneImageName = data_return.name;
+    oneImageFile = data_return.file;
+    $('.image-content__image-name').append().html(oneImageName);
+    $(".image-content__image").attr({title: "Selected image"});
+    $(".image-content__image img").attr({
+        alt: "Selected Image", src:
+        oneImageFile, title: "Selected image"
+    });
+}
+
+$('.image-content__next-btn#right').click(function (event) {
+    event.stopImmediatePropagation();
+
+    $.ajax({
+        type: "get",
+        url: "api/next_image",
+        data: {
+            index: imageCurrentIndex,
+            theme_id: selectedThemeId,
+            length: themeImagesSize
+        },
+        dataType: 'json'
+    }).done(imageChange)
+        .fail(function (data_return) {
+        console.log("error: data_return = " + data_return);
+    });
+});
+
+
+$('.image-content__next-btn#left').click(function (event) {
+    event.stopImmediatePropagation();
+
+    $.ajax({
+        type: "get",
+        url: "api/prev_image",
+        data: {
+            index: imageCurrentIndex,
+            theme_id: selectedThemeId,
+            length: themeImagesSize
+        },
+        dataType: 'json'
+    }).done(imageChange).fail(function (data_return) {
+        console.log("error: data_return = " + data_return);
+    });
+});

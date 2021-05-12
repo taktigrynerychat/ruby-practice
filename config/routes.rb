@@ -20,5 +20,9 @@ Rails.application.routes.draw do
   match 'display_theme', to: 'work#display_theme', via: :post, as: :js
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  namespace :api, defaults: { format: :json } do
+    match 'next_image', to: 'api#next_image', via: :get
+    match 'prev_image', to: 'api#prev_image', via: :get
+  end
 
 end
