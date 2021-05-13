@@ -1,0 +1,58 @@
+ru:
+  shared:
+    header:
+      index: "Главная"
+      help: "Помощь"
+      sign_in: "Войти"
+      sign_out: "Выйти"
+      users: "Пользователи"
+      work: "Рабочая зона"
+      contacts: "Контакты"
+      about: "О проекте"
+
+    footer:
+      index: "Главная"
+      help: "Помощь"
+      contacts: "Контакты"
+      about: "О проекте"
+
+  main:
+    index: "Главная"
+    rate_button: "Оценка изображений"
+    contacts: "Контакты"
+    help: "Помощь"
+    about: "О проекте"
+
+  sessions:
+    new:
+      sign_in: "Войти"
+      sign_up: "Зарегистрироваться"
+      email: "Е-мейл"
+      password: "Пароль"
+      new_user?: "Новый пользователь?"
+
+  users:
+    form:
+      name: "Имя"
+      email: "Е-мейл"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      create_account: "Создать аккаунт"
+
+    new:
+      new_user_sign_up: "Регистрация"
+      back: "Назад"
+
+    show:
+      email: "Е-мейл"
+      work: "Оценка изображений"
+
+  work:
+    index:
+      def_select_theme: "Выберите тему для оценки"
+
+    button_theme_select:
+      select_theme_button: "Выбрать тему"
+
+    choose_theme_from_arr:
+      select_theme: "Выберите тему"

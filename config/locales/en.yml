@@ -1,33 +1,62 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  shared:
+    header:
+      index: "Home"
+      help: "Help"
+      sign_in: "Sign in"
+      sign_out: "Sign out"
+      users: "Users"
+      work: "Work"
+      contacts: "Contacts"
+      about: "About"
+
+    footer:
+      index: "Index"
+      help: "Help"
+      contacts: "Contacts"
+      about: "About"
+
+  main:
+    index: "Main Page"
+    rate_button: "Rate images"
+    contacts: "Contacts"
+    help: "Help"
+    about: "About"
+
+  sessions:
+    new:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      email: "E-mail"
+      password: "Password"
+      new_user?: "New user?"
+
+  users:
+    form:
+      name: "Name"
+      email: "E-mail"
+      password: "Password"
+      password_confirmation: "Password confirmation"
+      create_account: "Create account"
+
+    new:
+      new_user_sign_up: "Sign up"
+      back: "Back"
+
+    show:
+      email: "E-mail"
+      work: "Rate images"
+
+  work:
+    index:
+      def_select_theme: "Select theme to leave your answer"
+
+    button_theme_select:
+      select_theme_button: "Select theme"
+
+    choose_theme_from_arr:
+      select_theme: "Select theme"
+
+    display_theme:
+      select_theme: "Select theme"
+

@@ -5,8 +5,8 @@ class WorkController < ApplicationController
     @images_count = Image.all.count
     @selected_theme = "Select theme to leave your answer"
     # @selected_theme = t(".def_select_theme")
-    # @selected_image_name = 'default.png'
-    @selected_image_name = 'duck-5.jpeg'
+    @selected_image_name = 'default.png'
+    # @selected_image_name = 'duck-5.jpeg'
     @values_qty = Value.all.count
     @current_locale = I18n.locale
     session[:selected_theme_id] = @selected_theme # to display nothing

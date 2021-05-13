@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :images
   resources :values
   resources :users
+  resources :sessions
 
   root 'work#index'
   get 'main/index'
@@ -24,5 +25,9 @@ Rails.application.routes.draw do
     match 'next_image', to: 'api#next_image', via: :get
     match 'prev_image', to: 'api#prev_image', via: :get
   end
+
+  match 'signup',   to: 'users#new',            via: 'get'
+  match 'signin',   to: 'sessions#new',         via: 'get'
+  match 'signout',  to: 'sessions#destroy',     via: 'delete'
 
 end
