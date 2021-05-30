@@ -3,8 +3,8 @@ class WorkController < ApplicationController
 
   def index
     @images_count = Image.all.count
-    @selected_theme = "Select theme to leave your answer"
-    # @selected_theme = t(".def_select_theme")
+    # @selected_theme = "Select theme to leave your answer"
+    @selected_theme = t(".def_select_theme")
     @selected_image_name = 'default.png'
     # @selected_image_name = 'duck-5.jpeg'
     @values_qty = Value.all.count

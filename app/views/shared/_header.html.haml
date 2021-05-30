@@ -2,9 +2,9 @@
   %li.nav-header__link-btn{:class => cp(root_path)}=link_to 'Home', root_path
   %li.nav-header__link-btn{:class => cp(main_contacts_path)}=link_to 'Contacts', main_contacts_path
   - if signed_in?
-    %li.logged
-      = current_user.email
-      = gravatar_for current_user
-    %li= link_to t('.sign_out'), signout_path, method: "delete"
+    %li.nav-header__link-btn{:class => cp(main_contacts_path)}=link_to t('.sign_out'), signout_path, method: "delete"
   - else
-    %li= link_to t('.sign_in'), signin_path
+    %li.nav-header__link-btn{:class => cp(main_contacts_path)}=link_to t('.sign_in'), signin_path
+  - if signed_in?
+    %div.logged{:email => current_user.email}
+      = gravatar_for current_user
