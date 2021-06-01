@@ -12,7 +12,11 @@
         #{@selected_image_name}
 
     .image-content__image
-      .image-content__rating
+      - if signed_in?
+        .image-content__rating
+      - else
+        .image-content__sign-in
+          войти
       .image-content__next-btn#left
         ◀
       %img{:alt => "Default Image",
@@ -21,5 +25,3 @@
             }
       .image-content__next-btn#right
         ▶
-
-%script{:type=>"module", :src => 'rate'}

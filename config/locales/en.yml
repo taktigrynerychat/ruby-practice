@@ -21,7 +21,9 @@ en:
     rate_button: "Rate images"
     contacts: "Contacts"
     help: "Help"
-    about: "About"
+    about:
+      text: "This is a training project for exploring the capabilities of the framework. In the \"Work\" section, you can select a topic and rate the corresponding images. In the \"results\" section, you can view the results"
+      title: "About"
 
   sessions:
     new:

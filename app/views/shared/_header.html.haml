@@ -1,10 +1,17 @@
 %ul.nav-header
-  %li.nav-header__link-btn{:class => cp(root_path)}=link_to 'Home', root_path
-  %li.nav-header__link-btn{:class => cp(main_contacts_path)}=link_to 'Contacts', main_contacts_path
+  %li.nav-header__link-btn{:class => cp(root_path)}=link_to t('shared.header.index'), root_path
+  %li.nav-header__link-btn{:class => cp(work_path)}=link_to t('shared.header.work'), work_path
+  %li.nav-header__link-btn{:class => cp(main_about_path)}=link_to t('shared.header.about'), main_about_path
+  %div.locale
+    %span{:class => dt(:ru)}= link_to "ru", locale: :ru
+    %span{:class => dt(:en)}= link_to "en", locale: :en
   - if signed_in?
-    %li.nav-header__link-btn{:class => cp(main_contacts_path)}=link_to t('.sign_out'), signout_path, method: "delete"
+    %button.nav-header__link-btn
+      = link_to t('.sign_out'), signout_path, method: "delete"
   - else
-    %li.nav-header__link-btn{:class => cp(main_contacts_path)}=link_to t('.sign_in'), signin_path
+    %button.nav-header__link-btn=link_to t('.sign_in'), signin_path
   - if signed_in?
     %div.logged{:email => current_user.email}
       = gravatar_for current_user
+      .ru_link
+

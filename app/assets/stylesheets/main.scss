@@ -23,6 +23,36 @@
   padding: 20px;
   position: relative;
 
+  & .locale {
+    display: flex;
+    gap: 10px;
+
+
+    & span {
+      display: flex;
+      height: 27px;
+      width: 27px;
+      justify-content: center;
+      align-items: center;
+
+      & a {
+        text-decoration: none;
+        color: #a5b9d4;
+      }
+
+
+      &.current {
+        font-weight: 700;
+        border-radius: 50%;
+        background: #f1f7ff;
+
+        a {
+          color: darken(#a5b9d4, 10);
+        }
+      }
+    }
+  }
+
   & .logged {
     display: flex;
     flex-direction: column-reverse;
@@ -31,13 +61,13 @@
     color: #a5b9d4;
     position: relative;
 
-    &::before{
+    &::before {
       content: attr(email);
       position: absolute;
       top: -15px;
     }
 
-    & img{
+    & img {
       height: 25px;
       width: 25px;
       border-radius: 50%;
@@ -49,11 +79,11 @@
       content: none;
     }
 
-    &:nth-child(3) {
+    &:nth-child(5) {
       margin-left: auto;
     }
 
-    & a {
+    &:not(button) a {
       text-decoration: none;
       color: #aeb8cb;
       position: relative;

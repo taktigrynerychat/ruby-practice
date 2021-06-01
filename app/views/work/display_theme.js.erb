@@ -26,15 +26,17 @@ var selectedThemeId = '<%= @image_data[:theme_id] %>';
 
 // show name of image
 $('.image-content__image-name').append().html(oneImageName);
+renderRating(2);
 
 // show image
 var pathImage = "assets/pictures/" + oneImageFile;
 $(".image-content__image").attr({title: "Selected image"});
 $(".image-content__image img").attr({alt: "Selected Image", src: pathImage, title: "Selected image"});
 
-$('.image-content__rating').attr({'data-value': 0});
+document.querySelector(".image-content__rating")?.addEventListener('change', onRatingChange)
 
-function imageChange(data_return){
+$('.image-content__rating').attr({'data-value': 0});
+function imageChange(data_return) {
     imageCurrentIndex = data_return.new_image_index;
     oneImageName = data_return.name;
     oneImageFile = data_return.file;
@@ -44,6 +46,7 @@ function imageChange(data_return){
         alt: "Selected Image", src:
         oneImageFile, title: "Selected image"
     });
+    renderRating(3);
 }
 
 $('.image-content__next-btn#right').click(function (event) {
@@ -60,8 +63,8 @@ $('.image-content__next-btn#right').click(function (event) {
         dataType: 'json'
     }).done(imageChange)
         .fail(function (data_return) {
-        console.log("error: data_return = " + data_return);
-    });
+            console.log("error: data_return = " + data_return);
+        });
 });
 
 
@@ -77,7 +80,23 @@ $('.image-content__next-btn#left').click(function (event) {
             length: themeImagesSize
         },
         dataType: 'json'
-    }).done(imageChange).fail(function (data_return) {
-        console.log("error: data_return = " + data_return);
-    });
+    }).done(imageChange)
+        .fail(function (data_return) {
+            console.log("error: data_return = " + data_return);
+        });
 });
+
+function renderRating(num) {
+    console.log('render');
+    document.querySelectorAll('.image-content__rating').forEach(dom => new window.Rating(dom));
+    setTimeout(() => {
+        $(".image-content__rating").attr({
+            "data-value": num
+        });
+    })
+}
+
+function onRatingChange(e) {
+    console.log(e);
+}
+

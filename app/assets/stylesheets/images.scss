@@ -32,7 +32,7 @@
       flex-grow: 1;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      margin: 0 20px;
       position: relative;
 
       & img {
@@ -42,22 +42,27 @@
       }
     }
 
-    &__rating {
+    &__rating, &__sign-in {
+      display: flex;
+      width: 100%;
+      justify-content: center;
       position: absolute;
       top: -25px;
-      left: calc((100% - 110px) / 2);
 
       & polygon:hover {
         cursor: pointer;
         transition: 500ms;
       }
+
       & polygon:hover {
         fill: black;
       }
+
       & polygon {
         fill: lightgray;
       }
-      & polygon.active{
+
+      & polygon.active {
         fill: gold;
       }
     }

@@ -2,13 +2,14 @@ export class Rating {
     constructor(dom) {
         dom.innerHTML = '<svg width="110" height="20"></svg>';
         this.svg = dom.querySelector('svg');
-        for(var i = 0; i < 5; i++)
-            this.svg.innerHTML += `<polygon data-value="${i+1}"
-           transform="translate(${i*22},0)"
+        this.parent = dom;
+        for (var i = 0; i < 5; i++)
+            this.svg.innerHTML += `<polygon data-value="${i + 1}"
+           transform="translate(${i * 22},0)"
            points="10,1 4,19.8 19,7.8 1,7.8 16,19.8">`;
         this.svg.onclick = e => this.change(e);
         this.render();
-        const callback = (function() {
+        const callback = (function () {
             this.render();
         }).bind(this);
         this.observer = new window.MutationObserver(callback);
@@ -21,19 +22,21 @@ export class Rating {
     change(e) {
         let value = e.target.dataset.value;
         value && (this.svg.parentNode.dataset.value = value);
+        if (value) {
+            let event = new CustomEvent('change', {
+                detail: {value},
+            });
+            this.parent.dispatchEvent(event);
+        }
     }
 
     render() {
         this.svg.querySelectorAll('polygon').forEach(star => {
-            let on = +this.svg.parentNode.dataset.value >= +star.dataset.value;
+            let on = +this.parent.dataset.value >= +star.dataset.value;
             star.classList.toggle('active', on);
         });
     }
 
-}
-
-window.onload = () => {
-    document.querySelectorAll('.image-content__rating').forEach(dom => new Rating(dom));
 }
 
 window.Rating = Rating;
