@@ -1,4 +1,7 @@
 ru:
+  locale:
+    en: "анг"
+    ru: "рус"
   shared:
     header:
       index: "Главная"

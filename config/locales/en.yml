@@ -1,4 +1,7 @@
 en:
+  locale:
+    en: "en"
+    ru: "ru"
   shared:
     header:
       index: "Home"

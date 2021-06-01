@@ -26,6 +26,7 @@
   & .locale {
     display: flex;
     gap: 10px;
+    font-size: 12px;
 
 
     & span {
@@ -79,7 +80,7 @@
       content: none;
     }
 
-    &:nth-child(5) {
+    &:nth-child(4) {
       margin-left: auto;
     }
 

@@ -37,16 +37,23 @@ document.querySelector(".image-content__rating")?.addEventListener('change', onR
 
 $('.image-content__rating').attr({'data-value': 0});
 function imageChange(data_return) {
+    console.log(data_return);
     imageCurrentIndex = data_return.new_image_index;
     oneImageName = data_return.name;
     oneImageFile = data_return.file;
+    oneImageId = data_return.image_id;
     $('.image-content__image-name').append().html(oneImageName);
     $(".image-content__image").attr({title: "Selected image"});
     $(".image-content__image img").attr({
         alt: "Selected Image", src:
         oneImageFile, title: "Selected image"
     });
-    renderRating(3);
+    if(data_return.user_valued){
+        renderRating(data_return.value);
+    } else {
+        renderRating(0)
+    }
+
 }
 
 $('.image-content__next-btn#right').click(function (event) {
@@ -97,6 +104,17 @@ function renderRating(num) {
 }
 
 function onRatingChange(e) {
-    console.log(e);
+    $.ajax({
+        type: "get",
+        url: "api/save_value",
+        data: {
+            image_id: oneImageId,
+            theme_id: selectedThemeId,
+            value: +e.detail.value
+        },
+        dataType: 'json'
+    }).done(function (data_return) {
+        console.log("success1c:  " + data_return);
+    });
 }
 

@@ -7,8 +7,7 @@ module WorkImage
   def show_image(theme_id, image_index)
     theme_images = Image.theme_images(theme_id)
 
-    # current_user_id = current_user.id
-    current_user_id = 1
+    current_user_id = current_user.id
     logger.info "In show_image: current_user_id =
 #{current_user_id.inspect} "
 
@@ -27,11 +26,11 @@ module WorkImage
     values_qty = Value.all.count.round
 
     if user_valued == 1
-      common_avg_value = Image.find_image(image_id).avg_value
+      common_avg_value = Image.find_image(image_id).ave_value
       logger.info "In 1show_image: common_avg_value =
  #{common_avg_value.inspect} "
       common_avg_value = 0 if common_avg_value.blank?
-      common_avg_value.round unless common_avg_value.blank?
+      common_avg_value.to_i.round unless common_avg_value.blank?
       logger.info "In 2show_image: common_avg_value =
  #{common_avg_value.inspect} "
     else

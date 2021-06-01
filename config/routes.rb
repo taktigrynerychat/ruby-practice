@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     match 'next_image', to: 'api#next_image', via: :get
     match 'prev_image', to: 'api#prev_image', via: :get
+    match 'save_value', to: 'api#save_value', via: :get
   end
 
   match 'signup',   to: 'users#new',            via: 'get'
