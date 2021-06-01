@@ -3,6 +3,7 @@ en:
     en: "en"
     ru: "ru"
   shared:
+    avg: "average:"
     header:
       index: "Home"
       help: "Help"

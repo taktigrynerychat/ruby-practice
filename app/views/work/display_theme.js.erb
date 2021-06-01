@@ -22,18 +22,19 @@ var oneImageId = '<%= @image_data[:image_id] %>';
 console.log("3f IN display_theme: oneImageId = " + oneImageId);
 var themeImagesSize = '<%= @image_data[:images_arr_size] %>';
 var selectedThemeId = '<%= @image_data[:theme_id] %>';
+var oneImageValue = '<%= @image_data[:value] %>';
+var oneImageAvg = '<%= @image_data[:common_avg_value] %>';
+renderRating(+oneImageValue);
+renderAvg(+oneImageAvg);
 
 
 // show name of image
 $('.image-content__image-name').append().html(oneImageName);
-renderRating(2);
 
 // show image
 var pathImage = "assets/pictures/" + oneImageFile;
 $(".image-content__image").attr({title: "Selected image"});
 $(".image-content__image img").attr({alt: "Selected Image", src: pathImage, title: "Selected image"});
-
-document.querySelector(".image-content__rating")?.addEventListener('change', onRatingChange)
 
 $('.image-content__rating').attr({'data-value': 0});
 function imageChange(data_return) {
@@ -42,17 +43,20 @@ function imageChange(data_return) {
     oneImageName = data_return.name;
     oneImageFile = data_return.file;
     oneImageId = data_return.image_id;
+    oneImageValue = data_return.value;
+    oneImageAvg = data_return.common_avg_value;
     $('.image-content__image-name').append().html(oneImageName);
     $(".image-content__image").attr({title: "Selected image"});
     $(".image-content__image img").attr({
         alt: "Selected Image", src:
         oneImageFile, title: "Selected image"
     });
-    if(data_return.user_valued){
-        renderRating(data_return.value);
+    if (data_return.user_valued) {
+        renderRating(oneImageValue);
     } else {
         renderRating(0)
     }
+    renderAvg(oneImageAvg);
 
 }
 
@@ -94,7 +98,6 @@ $('.image-content__next-btn#left').click(function (event) {
 });
 
 function renderRating(num) {
-    console.log('render');
     document.querySelectorAll('.image-content__rating').forEach(dom => new window.Rating(dom));
     setTimeout(() => {
         $(".image-content__rating").attr({
@@ -103,18 +106,20 @@ function renderRating(num) {
     })
 }
 
-function onRatingChange(e) {
-    $.ajax({
-        type: "get",
-        url: "api/save_value",
-        data: {
-            image_id: oneImageId,
-            theme_id: selectedThemeId,
-            value: +e.detail.value
-        },
-        dataType: 'json'
-    }).done(function (data_return) {
-        console.log("success1c:  " + data_return);
-    });
+function renderAvg(num) {
+    $(".image-content__avg-value").empty().html(`&nbsp;<b>${num}</b>`);
 }
+
+async function onRatingChange(e) {
+    const response = await fetch(`api/save_value?image_id=${oneImageId}&theme_id=${selectedThemeId}&value=${+e.detail.value}`)
+    const result = await response.json()
+    renderRating(result.value);
+    renderAvg(result.common_ave_value);
+}
+
+if (!document.querySelector(".image-content__rating").classList.contains('initialized')) {
+    document.querySelector(".image-content__rating")?.addEventListener('change', onRatingChange)
+    document.querySelector(".image-content__rating").classList.add('initialized');
+}
+
 

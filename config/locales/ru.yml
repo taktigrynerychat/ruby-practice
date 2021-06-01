@@ -3,6 +3,7 @@ ru:
     en: "анг"
     ru: "рус"
   shared:
+    avg: "среднее:"
     header:
       index: "Главная"
       help: "Помощь"
