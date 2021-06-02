@@ -1,0 +1,12 @@
+-# - @themes.each do |a|
+-#   .nav-header
+-#     %li.nav-header__link-btn{:class => cg(@selected_theme, a)}
+-#       %a
+-#         #{a}
+.form_select
+  = form_tag("/display_theme", remote: true,  :format => "js") do
+    = select_tag :theme,
+    options_for_select(@themes, selected: @selected_theme),
+    prompt: 'select_theme',
+    onchange: 'Rails.fire(this.form, "submit")',
+    formats: [ :js ]

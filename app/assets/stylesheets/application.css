@@ -30,3 +30,44 @@ ul {
 ul li a {
     text-decoration: none;
 }
+
+button, input[type="submit" i] {
+    display: flex;
+    background: #c1d4ea;
+    border: none;
+    box-shadow: #eeeeee;
+    padding: 5px 10px;
+    font-weight: 500;
+    color: white;
+}
+
+button:hover, input[type="submit" i]:hover {
+    background: #a5b9d4;
+}
+
+button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form .field{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding-bottom: 5px;
+}
+
+.form-container form .actions{
+    display: flex;
+    align-self: flex-end;
+}

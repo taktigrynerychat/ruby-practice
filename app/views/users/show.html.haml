@@ -1,0 +1,14 @@
+.show_user
+  .row
+    %aside.span4
+      %section
+        %h1
+          = gravatar_for @user
+          = @user.name
+
+  %p
+    %b= t('.email')
+    = @user.email
+
+  %button
+    = link_to t('sessions.new.sign_in'), signin_path

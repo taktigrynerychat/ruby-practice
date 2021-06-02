@@ -1,0 +1,29 @@
+.images
+  %table
+    %thead
+      %tr
+        %th Name
+        %th File
+        %th Avg value
+        %th Theme
+        %th Count
+        %th
+
+    %tbody
+      - @images.each do |image|
+        %tr.row
+          %td= image.name
+          %td.images__preview
+            %img{:src => "../assets/#{image.file}"}
+          %td
+            %svg{:width => 110, :height => 20}
+              -@rating_arr.select {|n| n <= image.ave_value.to_i}.each do |i|
+                %polygon.active{:transform => "translate(#{(i - 1)  * 22},0)", :points => "10,1 4,19.8 19,7.8 1,7.8 16,19.8", :fill => "gold"}
+              -@rating_arr.select {|n| n > image.ave_value.to_i}.each do |i|
+                %polygon.active{:transform => "translate(#{(i - 1)  * 22},0)", :points => "10,1 4,19.8 19,7.8 1,7.8 16,19.8", :fill => "lightgrey"}
+
+          %td= Theme.find_by_id(image.theme_id).name
+          %td= Value.all_by_image_id(image.id)
+          %td
+            %button= link_to t("shared.show"), image
+

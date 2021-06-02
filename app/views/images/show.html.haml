@@ -1,0 +1,4 @@
+.image-content__image.showcase
+  %img{:src => "../assets/#{@image.file}"}
+
+  %button= link_to t('users.new.back'), images_path

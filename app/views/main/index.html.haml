@@ -1,2 +1,12 @@
-%h1 Main#index
-%p Find me in app/views/main/index.html.erb
+%div.main-page
+  %svg.main-page__ror-logo
+    %use{:href => "assets/ror.svg#ruby-logo"}
+  %div.main-page__content
+    %h1
+      = t("main.desc")
+    -if signed_in?
+      %button.nav-header__link-btn=link_to t('users.show.work'), work_path
+    -else
+      %button.nav-header__link-btn=link_to t('sessions.new.sign_in'), signin_path
+    %span.main-page__content-about
+      = t("main.about.text")

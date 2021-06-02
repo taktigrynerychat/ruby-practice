@@ -1,0 +1,148 @@
+// Place all the styles related to the Images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.image {
+  display: flex;
+  flex: 1 0 100%;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    flex-grow: 1;
+  }
+
+  &-content {
+    &__metadata {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 30px;
+      gap: 10px;
+    }
+
+    &__avg {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 10px;
+      position: absolute;
+      top: -65px;
+      right: 0;
+    }
+
+    &__image {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 20px;
+      position: relative;
+
+      & img {
+        width: auto;
+        max-height: calc(100vh - 200px);
+        max-width: calc(100vw - 140px);
+      }
+    }
+
+    &__rating, &__sign-in {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      position: absolute;
+      top: -25px;
+
+      & polygon:hover {
+        cursor: pointer;
+        transition: 500ms;
+      }
+
+      & polygon:hover {
+        fill: black;
+      }
+
+      & polygon {
+        fill: lightgray;
+      }
+
+      & polygon.active {
+        fill: gold;
+      }
+    }
+
+    &__next-btn {
+      display: flex;
+      flex-shrink: 0;
+      font-weight: 500;
+      font-size: 1.5em;
+      cursor: pointer;
+      background: #bed0e7;
+      color: #fff;
+      padding: 5px 10px;
+
+      &:hover {
+        background: #adc1dd;
+      }
+    }
+  }
+}
+
+.images {
+  display: flex;
+  flex: 1 0 100%;
+  flex-direction: column;
+  padding: 0 20px;
+
+  &__preview img {
+    max-width: 50px;
+    height: auto;
+    max-height: 40px;
+  }
+
+  &__preview {
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+
+  table {
+    border-spacing: 0;
+  }
+
+  & tr {
+    text-align: left;
+
+    &.row {
+      &:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      & td:first-child {
+        padding-left: 10px;
+      }
+
+      &:hover {
+        background: #f0f5ff;
+      }
+    }
+  }
+}
+
+.showcase {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  & button {
+    margin-top: 20px;
+  }
+}
