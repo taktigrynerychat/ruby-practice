@@ -11,7 +11,8 @@
   & .container {
     display: flex;
     flex-direction: column;
-    flex: 1 0 auto;
+    flex: 1 1 auto;
+    overflow: auto;
   }
 }
 
@@ -80,7 +81,7 @@
       content: none;
     }
 
-    &:nth-child(4) {
+    &:nth-child(5) {
       margin-left: auto;
     }
 

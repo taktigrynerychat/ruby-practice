@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
   # GET /images or /images.json
   def index
     @images = Image.all
+    @rating_arr = [1, 2, 3, 4, 5]
   end
 
   # GET /images/1 or /images/1.json

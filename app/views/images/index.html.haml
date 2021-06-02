@@ -1,27 +1,29 @@
-%h1 Listing images
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th File
-      %th Ave value
-      %th Theme
-      %th
-      %th
-      %th
-
-  %tbody
-    - @images.each do |image|
+.images
+  %table
+    %thead
       %tr
-        %td= image.name
-        %td= image.file
-        %td= image.ave_value
-        %td= image.theme_id
-        %td= link_to 'Show', image
-        %td= link_to 'Edit', edit_image_path(image)
-        %td= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }
+        %th Name
+        %th File
+        %th Ave value
+        %th Theme
+        %th Count
+        %th
 
-%br
+    %tbody
+      - @images.each do |image|
+        %tr
+          %td= image.name
+          %td.images__preview
+            %img{:src => "../assets/#{image.file}"}
+          %td
+            %svg{:width => 110, :height => 20}
+              -@rating_arr.select {|n| n <= image.ave_value.to_i}.each do |i|
+                %polygon.active{:transform => "translate(#{(i - 1)  * 22},0)", :points => "10,1 4,19.8 19,7.8 1,7.8 16,19.8", :fill => "gold"}
+              -@rating_arr.select {|n| n > image.ave_value.to_i}.each do |i|
+                %polygon.active{:transform => "translate(#{(i - 1)  * 22},0)", :points => "10,1 4,19.8 19,7.8 1,7.8 16,19.8", :fill => "lightgrey"}
 
-= link_to 'New Image', new_image_path
+          %td= Theme.find_by_id(image.theme_id).name
+          %td= Value.all_by_image_id(image.id)
+          %td
+            %button= link_to 'Show', image
+
