@@ -4,14 +4,14 @@
       %tr
         %th Name
         %th File
-        %th Ave value
+        %th Avg value
         %th Theme
         %th Count
         %th
 
     %tbody
       - @images.each do |image|
-        %tr
+        %tr.row
           %td= image.name
           %td.images__preview
             %img{:src => "../assets/#{image.file}"}
