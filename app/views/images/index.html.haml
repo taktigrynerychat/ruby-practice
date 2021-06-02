@@ -25,5 +25,5 @@
           %td= Theme.find_by_id(image.theme_id).name
           %td= Value.all_by_image_id(image.id)
           %td
-            %button= link_to 'Show', image
+            %button= link_to t("shared.show"), image
 

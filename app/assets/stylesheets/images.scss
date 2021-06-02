@@ -121,9 +121,10 @@
     text-align: left;
 
     &.row {
-      &:nth-child(even){
+      &:nth-child(even) {
         background: #f8f8f8;
       }
+
       & td:first-child {
         padding-left: 10px;
       }
@@ -138,4 +139,10 @@
 .showcase {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  & button {
+    margin-top: 20px;
+  }
 }

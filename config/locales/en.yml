@@ -4,6 +4,7 @@ en:
     ru: "ru"
   shared:
     avg: "average:"
+    show: "Show"
     header:
       index: "Home"
       help: "Help"

@@ -4,6 +4,7 @@ ru:
     ru: "рус"
   shared:
     avg: "среднее:"
+    show: "Показать"
     header:
       index: "Главная"
       help: "Помощь"
