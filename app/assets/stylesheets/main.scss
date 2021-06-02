@@ -107,3 +107,33 @@
     }
   }
 }
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__ror-logo {
+    fill: $link-highlight;
+    width: 300px !important;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &-about {
+      display: flex;
+      padding: 15px 10%;
+      max-width: 700px;
+      color: #002f6b;
+      text-align: center;
+    }
+
+    & h1 {
+      color: #002f6b;
+    }
+  }
+}

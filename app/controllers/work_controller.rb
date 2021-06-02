@@ -24,7 +24,7 @@ class WorkController < ApplicationController
     @image_data = {}
     I18n.locale = session[:current_locale]
 
-    current_user_id = current_user.id
+    current_user_id = current_user ? current_user.id : 1
     if params[:theme] == "-----" || params[:theme] == ''
       theme = "Select theme to leave your answer"
       theme_id = 1

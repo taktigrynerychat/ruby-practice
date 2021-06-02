@@ -21,6 +21,7 @@ ru:
       about: "О проекте"
 
   main:
+    desc: "Добро пожаловать в Experteese"
     index: "Главная"
     rate_button: "Оценка изображений"
     contacts: "Контакты"

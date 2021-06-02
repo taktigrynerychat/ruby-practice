@@ -16,7 +16,7 @@
         .image-content__rating
       - else
         .image-content__sign-in
-          войти
+          %button.nav-header__link-btn=link_to t('sessions.new.sign_in'), signin_path
       .image-content__avg
         %span.image-content__avg-title= t('shared.avg')
         %span.image-content__avg-value

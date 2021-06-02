@@ -21,6 +21,7 @@ en:
       about: "About"
 
   main:
+    desc: "Welcome to Experteese"
     index: "Main Page"
     rate_button: "Rate images"
     contacts: "Contacts"
